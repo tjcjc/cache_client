@@ -19,7 +19,7 @@ module CacheClient
           if servers[:#{name}].class.to_s.match("Redis")
             servers[:#{name}].mget(cached_keys.join(","))
           else
-            servers[:#{name}].mulit_get(cached_keys)
+            servers[:#{name}].get_multi(cached_keys.join(","))
           end
         end
 
